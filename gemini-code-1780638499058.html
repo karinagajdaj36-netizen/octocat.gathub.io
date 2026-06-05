@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свідки мовчать — Психологічний детектив-трилер</title>
+    <!-- Підключення шрифтів із макету -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --accent-red: #8b0000;
+            --accent-light-red: #ff3333;
+            --text-main: #e0e0e0;
+            --text-white: #ffffff;
+            --text-muted: #888888;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'PT Serif', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--text-white);
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .accent-font {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(11,11,11,1)), url('placeholder-dark-campus.jpg') center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin: 0;
+            color: var(--text-white);
+            text-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+        }
+
+        .hero-content p.genre {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-light-red);
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 2rem 0;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-red);
+            padding-left: 1rem;
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            font-family: 'Oswald', sans-serif;
+            text-decoration: none;
+            padding: 0.8rem 2.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            border-color: var(--accent-light-red);
+            box-shadow: 0 0 15px var(--accent-light-red);
+        }
+
+        /* --- CONCEPT & ATMOSPHERE --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+
+        .atmosphere-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .atmosphere-list li {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .atmosphere-list li::before {
+            content: "⚡";
+            margin-right: 10px;
+            color: var(--accent-light-red);
+        }
+
+        /* --- CHAPTERS SECTION --- */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .chapter-card {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-left: 3px solid #333;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+
+        .chapter-card.evidence {
+            border-left-color: var(--accent-red);
+            background: linear-gradient(90deg, rgba(139,0,0,0.1), transparent);
+        }
+
+        .chapter-card.evidence span {
+            color: var(--accent-light-red);
+            display: block;
+            font-size: 0.8rem;
+            font-family: 'PT Serif', serif;
+            font-style: italic;
+        }
+
+        .chapter-card:hover {
+            transform: translateX(5px);
+        }
+
+        /* --- QUOTE BLOCK --- */
+        .quote-block {
+            background-color: #111;
+            border: 1px dashed #333;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .quote-block h3 {
+            font-size: 2.5rem;
+            color: var(--accent-light-red);
+            margin: 0 0 1rem 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid #1a1a1a;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .formats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .format-item {
+            border: 1px solid #333;
+            padding: 0.5rem 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .format-item.active {
+            border-color: var(--accent-red);
+            color: var(--text-white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ГОЛОВНИЙ ЕКРАН -->
+    <header>
+        <div class="hero-content">
+            <p class="genre">Психологічний детектив-трилер</p>
+            <h1>Свідки мовчать</h1>
+            <p class="accent-font" style="color: var(--text-muted);">Авторки: Гайдай Каріна, Горблюк Олена</p>
+            <div>
+                <span class="tagline">«Правду бачили всі. Але свідки мовчать.»</span>
+            </div>
+            <br>
+            <a href="#chapters" class="btn">Поринути у розслідування</a>
+        </div>
+    </header>
+
+    <!-- КОНЦЕПЦІЯ ТА АТМОСФЕРА -->
+    <section class="container">
+        <div class="grid-2">
+            <div>
+                <h2>Концепція</h2>
+                <p>«Свідки мовчать» — це психологічний трилер про студентів, які стають учасниками подій після загадкового зникнення одногрупниці.</p>
+                <p>Анонімні листи-погрози, дивні фотографії, мовчання викладачів і таємниці минулого змушують героїв зрозуміти: злочинець — серед них. Книга про страх, довіру, моральний вибір і мовчання як співучасть.</p>
+            </div>
+            <div>
+                <h2>Атмосфера сайту</h2>
+                <ul class="atmosphere-list">
+                    <li>Напружена & Похмура</li>
+                    <li>Кінематографічна</li>
+                    <li>Молодіжна</li>
+                    <li>Психологічно тривожна</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- АКЦЕНТНА ЦИТАТА -->
+    <section class="container" style="padding-top: 0; padding-bottom: 0;">
+        <div class="quote-block">
+            <h3>«ТИ БАЧИЛА. І ТИ МОВЧИШ.»</h3>
+            <p>Хтось знає більше, ніж говорить. Хтось говорить більше, ніж знає.</p>
+            <p style="color: var(--accent-light-red); text-transform: uppercase;" class="accent-font">Мовчання — теж вибір. Не довіряй нікому.</p>
+        </div>
+    </section>
+
+    <!-- ЗМІСТ / РОЗДІЛИ -->
+    <section class="container" id="chapters">
+        <h2>Структура книги (23 розділи)</h2>
+        <p style="color: var(--text-muted); margin-top: -1rem; margin-bottom: 2rem;">Червоним виділено розділи, які містять знайдені докази та листи-погрози.</p>
+        
+        <div class="chapters-grid">
+            <div class="chapter-card">1. Зникнення</div>
+            <div class="chapter-card">2. Порожнє місце</div>
+            <div class="chapter-card evidence">3. Перше повідомлення <span>(є фото листа-погрози)</span></div>
+            <div class="chapter-card">4. Камери спостереження</div>
+            <div class="chapter-card">5. Брехня Макса</div>
+            <div class="chapter-card">6. Ніч у гуртожитку</div>
+            <div class="chapter-card evidence">7. Другий лист <span>(є фото листа-погрози)</span></div>
+            <div class="chapter-card">8. Закрита аудиторія</div>
+            <div class="chapter-card">9. Фотографія</div>
+            <div class="chapter-card">10. Чужий телефон</div>
+            <div class="chapter-card">11. Після опівночі</div>
+            <div class="chapter-card">12. Мовчання викладача</div>
+            <div class="chapter-card">13. Підвал</div>
+            <div class="chapter-card evidence">14. Третій лист <span>(є фото листа-погрози)</span></div>
+            <div class="chapter-card">15. Свідок</div>
+            <div class="chapter-card">16. Помилка</div>
+            <div class="chapter-card">17. Паніка</div>
+            <div class="chapter-card">18. Архів</div>
+            <div class="chapter-card">19. Відео</div>
+            <div class="chapter-card">20. Визнання</div>
+            <div class="chapter-card evidence">21. Останній лист <span>(є photo листа-погрози)</span></div>
+            <div class="chapter-card">22. Свідки</div>
+            <div class="chapter-card">23. Мовчання</div>
+        </div>
+    </section>
+
+    <!-- ПІДВАЛ -->
+    <footer>
+        <div class="formats">
+            <div class="format-item active">Паперова книга</div>
+            <div class="format-item active">Електронна книга</div>
+            <div class="format-item">Аудіокнига</div>
+        </div>
+        <p style="letter-spacing: 2px;">© 2026 Свідки мовчать. Популярно в TikTok / BookTok спільнотах</p>
+    </footer>
+
+</body>
+</html>
